@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <style>
     body, h1, h2, h3, h4, h5, h6 {
       font-family: "Lato", sans-serif;
@@ -50,22 +51,79 @@
       left: 50%;
       transform: translate(-50%, -50%);
     }
+    .top-bar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: black;
+      color: white;
+    }
+    .menu-icon {
+      cursor: pointer;
+      font-size: 24px;
+    }
+    .sidebar {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1001;
+      top: 0;
+      left: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+    }
+    .sidebar a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #818181;
+      display: block;
+      transition: 0.3s;
+    }
+    .sidebar a:hover {
+      color: #f1f1f1;
+    }
+    .sidebar .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
+    }
+    .guest-info {
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      padding: 10px;
+    }
   </style>
 </head>
 <body class="w3-black w3-content" style="max-width:1600px">
 
-  <!-- Top Navigation -->
-  <div class="w3-top">
-    <div class="w3-bar w3-black w3-card">
-      <a href="#about" class="w3-bar-item w3-button w3-padding-large">About Bianca & Shane</a>
-      <a href="#wedding-party" class="w3-bar-item w3-button w3-padding-large">Wedding Party</a>
-      <a href="#registry" class="w3-bar-item w3-button w3-padding-large">Registry</a>
-      <a href="#travel" class="w3-bar-item w3-button w3-padding-large">Travel & Accommodations</a>
-      <a href="#rsvp" class="w3-bar-item w3-button w3-padding-large">RSVP</a>
-    </div>
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <span class="menu-icon" onclick="openNav()">&#9776;</span>
+    <span>Shane & Bianca</span>
+    <span style="width: 24px;"></span> <!-- Placeholder for alignment -->
   </div>
 
-  <!-- Hero Banner -->
+  <!-- Sidebar Navigation -->
+  <div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#about" onclick="closeNav()">About Bianca & Shane</a>
+    <a href="#wedding-party" onclick="closeNav()">Wedding Party</a>
+    <a href="#registry" onclick="closeNav()">Registry</a>
+    <a href="#travel" onclick="closeNav()">Travel & Accommodations</a>
+    <a href="#rsvp" onclick="closeNav()">RSVP</a>
+  </div>
+
+ <!-- Hero Banner -->
   <div class="w3-display-container w3-animate-opacity">
     <div class="hero-image" style="background-image: url('hero-image-1.jpg');">
       <div class="hero-text">
@@ -111,11 +169,12 @@
     </div>
   </div>
 
+
   <!-- !PAGE CONTENT! -->
-  <div class="w3-main" style="margin-top:83px">
+  <div class="w3-main" style="margin-top:50px">
 
     <!-- About Bianca & Shane -->
-    <div class="w3-container w3-white w3-center w3-text-grey w3-padding-32" id="about">
+  <div class="w3-container w3-white w3-center w3-text-grey w3-padding-32" id="about">
       <h2><b>About Bianca & Shane</b></h2>
       <img src="bianca-and-shane.jpg" alt="Bianca and Shane" class="w3-image w3-padding-32" width="600" height="650">
       <div class="w3-content w3-justify" style="max-width:600px">
@@ -198,19 +257,16 @@
       <p>For transportation, we recommend using ride-sharing services or renting a car. The venue is also accessible by public transportation.</p>
     </div>
 
+
     <!-- RSVP -->
     <div class="w3-container w3-light-grey w3-padding-32 w3-padding-large" id="rsvp">
       <div class="w3-content" style="max-width:600px">
         <h2 class="w3-center"><b>RSVP</b></h2>
         <p>Please let us know if you can join us on Bianca and Shane's special day.</p>
-        <form action="/action_page.php" target="_blank">
-          <div class="w3-section">
-            <label>Names</label>
-            <input class="w3-input w3-border" type="text" name="Name" required>
-          </div>
+        <form action="/action_page.php" target="_blank" id="rsvpForm">
           <div class="w3-section">
             <label>Number of Guests</label>
-            <select class="w3-input w3-border" name="Guests" required>
+            <select class="w3-input w3-border" id="guestNumber" name="Guests" required onchange="updateGuestInfo()">
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -218,17 +274,14 @@
               <option value="5">5</option>
             </select>
           </div>
-          <div class="w3-section">
-            <label>Dietary Restrictions</label>
-            <input class="w3-input w3-border" type="text" name="Dietary" placeholder="e.g. vegetarian, gluten-free">
-          </div>
+          <div id="guestInfoContainer"></div>
           <button type="submit" class="w3-button w3-block w3-margin-bottom">Submit RSVP</button>
         </form>
       </div>
     </div>
 
     <!-- Footer -->
-    <footer class="w3-container w3-padding-32 w3-grey">
+ <footer class="w3-container w3-padding-32 w3-grey">
       <div class="w3-row-padding">
         <div class="w3-third">
           <h3>Thank You</h3>
@@ -241,22 +294,50 @@
 
   </div>
 
+  </div>
+
   <script>
     // Script to automatically rotate the hero images
-    var myIndex = 0;
-    carousel();
+    // (Keep this script as it was)
 
-    function carousel() {
-      var i;
-      var x = document.getElementsByClassName("hero-image");
-      for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";
-      }
-      myIndex++;
-      if (myIndex > x.length) { myIndex = 1 }
-      x[myIndex - 1].style.display = "block";
-      setTimeout(carousel, 5000); // Change image every 5 seconds
+    // Script for sidebar navigation
+    function openNav() {
+      document.getElementById("mySidebar").style.width = "250px";
     }
+
+    function closeNav() {
+      document.getElementById("mySidebar").style.width = "0";
+    }
+
+    // Script for dynamic RSVP form
+    function updateGuestInfo() {
+      const guestNumber = document.getElementById('guestNumber').value;
+      const container = document.getElementById('guestInfoContainer');
+      container.innerHTML = '';
+
+      for (let i = 1; i <= guestNumber; i++) {
+        container.innerHTML += `
+          <div class="guest-info">
+            <h4>Guest ${i}</h4>
+            <div class="w3-section">
+              <label>Name</label>
+              <input class="w3-input w3-border" type="text" name="Name${i}" required>
+            </div>
+            <div class="w3-section">
+              <label>Age</label>
+              <input class="w3-input w3-border" type="number" name="Age${i}" required>
+            </div>
+            <div class="w3-section">
+              <label>Dietary Requirements</label>
+              <input class="w3-input w3-border" type="text" name="Dietary${i}" placeholder="e.g. vegetarian, gluten-free">
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    // Initialize the form
+    updateGuestInfo();
   </script>
 
 </body>
