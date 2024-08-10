@@ -8,9 +8,8 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <style>
-    body, h1, h2, h3, h4, h5, h6 {
-      font-family: "Lato", sans-serif;
-    }
+    /* (Keep the previous styles) */
+
     .w3-third img {
       margin-bottom: -6px;
       opacity: 0.8;
@@ -19,325 +18,63 @@
     .w3-third img:hover {
       opacity: 1;
     }
-    .w3-button {
-      background-color: black;
-      color: white;
-    }
-    .w3-accent {
-      color: #87CEEB;
-    }
-    .hero-image {
-      background-color: #cccccc;
-      height: 80vh;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      position: relative;
-    }
-    .hero-text {
-      text-align: center;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: white;
-    }
-    .w3-display-container {
-      position: relative;
-    }
-    .w3-display-container .w3-display-middle {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-    .top-bar {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-      background-color: black;
-      color: white;
-    }
-    .menu-icon {
-      cursor: pointer;
-      font-size: 24px;
-    }
-    .sidebar {
-      height: 100%;
-      width: 0;
-      position: fixed;
-      z-index: 1001;
-      top: 0;
-      left: 0;
-      background-color: #111;
-      overflow-x: hidden;
-      transition: 0.5s;
-      padding-top: 60px;
-    }
-    .sidebar a {
-      padding: 8px 8px 8px 32px;
-      text-decoration: none;
-      font-size: 25px;
-      color: #818181;
-      display: block;
-      transition: 0.3s;
-    }
-    .sidebar a:hover {
-      color: #f1f1f1;
-    }
-    .sidebar .closebtn {
-      position: absolute;
-      top: 0;
-      right: 25px;
-      font-size: 36px;
-      margin-left: 50px;
-    }
-    .guest-info {
-      margin-bottom: 20px;
-      border: 1px solid #ddd;
-      padding: 10px;
-    }
   </style>
 </head>
-<body class="w3-black w3-content" style="max-width:1600px">
+<body class="w3-content" style="max-width:1600px">
 
-  <!-- Top Bar -->
-  <div class="top-bar">
-    <span class="menu-icon" onclick="openNav()">&#9776;</span>
-    <span>Shane & Bianca</span>
-    <span style="width: 24px;"></span> <!-- Placeholder for alignment -->
-  </div>
-
-  <!-- Sidebar Navigation -->
-  <div id="mySidebar" class="sidebar">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="#about" onclick="closeNav()">About Bianca & Shane</a>
-    <a href="#wedding-party" onclick="closeNav()">Wedding Party</a>
-    <a href="#registry" onclick="closeNav()">Registry</a>
-    <a href="#travel" onclick="closeNav()">Travel & Accommodations</a>
-    <a href="#rsvp" onclick="closeNav()">RSVP</a>
-  </div>
-
- <!-- Hero Banner -->
-  <div class="w3-display-container w3-animate-opacity">
-    <div class="hero-image" style="background-image: url('hero-image-1.jpg');">
-      <div class="hero-text">
-        <h1 style="font-size:50px">Bianca & Shane</h1>
-        <p>Date: June 10, 2023 | Time: 5:00 PM</p>
-        <p>Location: The Garden Venue, 123 Flower St, Anytown USA</p>
-      </div>
-    </div>
-    <div class="hero-image" style="background-image: url('hero-image-2.jpg'); display: none;">
-      <div class="hero-text">
-        <h1 style="font-size:50px">Bianca & Shane</h1>
-        <p>Date: June 10, 2023 | Time: 5:00 PM</p>
-        <p>Location: The Garden Venue, 123 Flower St, Anytown USA</p>
-      </div>
-    </div>
-    <div class="hero-image" style="background-image: url('hero-image-3.jpg'); display: none;">
-      <div class="hero-text">
-        <h1 style="font-size:50px">Bianca & Shane</h1>
-        <p>Date: June 10, 2023 | Time: 5:00 PM</p>
-        <p>Location: The Garden Venue, 123 Flower St, Anytown USA</p>
-      </div>
-    </div>
-    <div class="hero-image" style="background-image: url('hero-image-4.jpg'); display: none;">
-      <div class="hero-text">
-        <h1 style="font-size:50px">Bianca & Shane</h1>
-        <p>Date: June 10, 2023 | Time: 5:00 PM</p>
-        <p>Location: The Garden Venue, 123 Flower St, Anytown USA</p>
-      </div>
-    </div>
-    <div class="hero-image" style="background-image: url('hero-image-5.jpg'); display: none;">
-      <div class="hero-text">
-        <h1 style="font-size:50px">Bianca & Shane</h1>
-        <p>Date: June 10, 2023 | Time: 5:00 PM</p>
-        <p>Location: The Garden Venue, 123 Flower St, Anytown USA</p>
-      </div>
-    </div>
-    <div class="hero-image" style="background-image: url('hero-image-6.jpg'); display: none;">
-      <div class="hero-text">
-        <h1 style="font-size:50px">Bianca & Shane</h1>
-        <p>Date: June 10, 2023 | Time: 5:00 PM</p>
-        <p>Location: The Garden Venue, 123 Flower St, Anytown USA</p>
-      </div>
-    </div>
-  </div>
-
+  <!-- (Keep the top bar and sidebar navigation) -->
 
   <!-- !PAGE CONTENT! -->
   <div class="w3-main" style="margin-top:50px">
 
-    <!-- About Bianca & Shane -->
-  <div class="w3-container w3-white w3-center w3-text-grey w3-padding-32" id="about">
-      <h2><b>About Bianca & Shane</b></h2>
-      <img src="bianca-and-shane.jpg" alt="Bianca and Shane" class="w3-image w3-padding-32" width="600" height="650">
-      <div class="w3-content w3-justify" style="max-width:600px">
-        <h4>Their Story</h4>
-        <p>Bianca and Shane first crossed paths at church, a place that would become the foundation of their beautiful journey together. Although they had spoken many times before, it wasn't until the perfect moment, guided by divine timing, that they truly noticed each other. Their first date marked the beginning of a love story that would blossom into something extraordinary.</p>
-        <p>Their relationship has been filled with memorable milestones, from their first date to their engagement. Together, they share a passion for adventure, enjoying activities like hiking, parkruns, and exploring new places. Whether they're embarking on exciting adventures or relaxing at home with a movie, their bond grows stronger with each passing day. They also cherish spending quality time with their families, which has further deepened their connection.</p>
-        <p>Bianca, a dedicated nurse, and Shane, who works in the information technology field, complement each other perfectly. Their love is a beautiful blend of care, support, and shared dreams. This special day marks the beginning of a new chapter in their lives, and they are thrilled to celebrate their love with all of you. The theme of their celebration is one of gratitude and joy, as they honor the journey that brought them together and look forward to a future filled with love and happiness.</p>
-        <hr class="w3-opacity">
+    <!-- (Keep the hero banner section) -->
+
+    <!-- Photo grid -->
+    <div class="w3-row">
+      <div class="w3-third">
+        <img src="image1.jpg" style="width:100%" onclick="onClick(this)" alt="Description of image 1">
+        <img src="image2.jpg" style="width:100%" onclick="onClick(this)" alt="Description of image 2">
+        <img src="image3.jpg" style="width:100%" onclick="onClick(this)" alt="Description of image 3">
+      </div>
+
+      <div class="w3-third">
+        <img src="image4.jpg" style="width:100%" onclick="onClick(this)" alt="Description of image 4">
+        <img src="image5.jpg" style="width:100%" onclick="onClick(this)" alt="Description of image 5">
+        <img src="image6.jpg" style="width:100%" onclick="onClick(this)" alt="Description of image 6">
+      </div>
+    
+      <div class="w3-third">
+        <img src="image7.jpg" style="width:100%" onclick="onClick(this)" alt="Description of image 7">
+        <img src="image8.jpg" style="width:100%" onclick="onClick(this)" alt="Description of image 8">
+        <img src="image9.jpg" style="width:100%" onclick="onClick(this)" alt="Description of image 9">
       </div>
     </div>
 
-    <!-- Wedding Party -->
-    <div class="w3-container w3-padding-32" id="wedding-party">
-      <h2 class="w3-center">Bianca & Shane's Wedding Party</h2>
-      <div class="w3-row-padding">
-        <div class="w3-third">
-          <img src="bridesmaid-1.jpg" style="width:100%" alt="Bridesmaid 1">
-          <h4>Bridesmaid 1</h4>
-          <p>Bianca's best friend since high school.</p>
-        </div>
-        <div class="w3-third">
-          <img src="bridesmaid-2.jpg" style="width:100%" alt="Bridesmaid 2">
-          <h4>Bridesmaid 2</h4>
-          <p>Bianca's college roommate.</p>
-        </div>
-        <div class="w3-third">
-          <img src="bridesmaid-3.jpg" style="width:100%" alt="Bridesmaid 3">
-          <h4>Bridesmaid 3</h4>
-          <p>Bianca's cousin.</p>
-        </div>
-      </div>
-      <div class="w3-row-padding">
-        <div class="w3-third">
-          <img src="groomsman-1.jpg" style="width:100%" alt="Groomsman 1">
-          <h4>Groomsman 1</h4>
-          <p>Shane's college roommate.</p>
-        </div>
-        <div class="w3-third">
-          <img src="groomsman-2.jpg" style="width:100%" alt="Groomsman 2">
-          <h4>Groomsman 2</h4>
-          <p>Shane's best friend from work.</p>
-        </div>
-        <div class="w3-third">
-          <img src="groomsman-3.jpg" style="width:100%" alt="Groomsman 3">
-          <h4>Groomsman 3</h4>
-          <p>Shane's brother.</p>
-        </div>
-      </div>
-      <div class="w3-row-padding">
-        <div class="w3-third">
-          <img src="maid-of-honor.jpg" style="width:100%" alt="Maid of Honor">
-          <h4>Maid of Honor</h4>
-          <p>Bianca's sister and best friend.</p>
-        </div>
-        <div class="w3-third">
-          <img src="best-man.jpg" style="width:100%" alt="Best Man">
-          <h4>Best Man</h4>
-          <p>Shane's childhood friend.</p>
-        </div>
+    <!-- (Keep the About, Wedding Party, Registry, Travel & Accommodations, and RSVP sections) -->
+
+    <!-- Modal for full size images on click -->
+    <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+      <span class="w3-button w3-black w3-xlarge w3-display-topright">×</span>
+      <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+        <img id="img01" class="w3-image">
+        <p id="caption"></p>
       </div>
     </div>
 
-    <!-- Registry -->
-    <div class="w3-container w3-light-grey w3-center w3-text-grey w3-padding-32" id="registry">
-      <h2>Bianca & Shane's Registry</h2>
-      <p>Bianca and Shane are registered at Macy's and Crate & Barrel. Click the links below to view their registry:</p>
-      <a href="https://www.macys.com/registry/wedding/guest/?registryId=1234567" class="w3-button w3-margin-bottom">Macy's Registry</a>
-      <a href="https://www.crateandbarrel.com/registry/bianca-and-shane/r6543210" class="w3-button w3-margin-bottom">Crate & Barrel Registry</a>
-    </div>
-
-    <!-- Travel & Accommodations -->
-    <div class="w3-container w3-padding-32" id="travel">
-      <h2 class="w3-center">Travel & Accommodations</h2>
-      <p>The wedding venue is located in Anytown, USA. Here are some recommended hotels for your stay:</p>
-      <ul>
-        <li>The Grand Hotel - 123 Main St, Anytown USA</li>
-        <li>Cozy Inn - 456 Oak Rd, Anytown USA</li>
-        <li>Luxury Suites - 789 Elm Ave, Anytown USA</li>
-      </ul>
-      <p>For transportation, we recommend using ride-sharing services or renting a car. The venue is also accessible by public transportation.</p>
-    </div>
-
-
-    <!-- RSVP -->
-    <div class="w3-container w3-light-grey w3-padding-32 w3-padding-large" id="rsvp">
-      <div class="w3-content" style="max-width:600px">
-        <h2 class="w3-center"><b>RSVP</b></h2>
-        <p>Please let us know if you can join us on Bianca and Shane's special day.</p>
-        <form action="/action_page.php" target="_blank" id="rsvpForm">
-          <div class="w3-section">
-            <label>Number of Guests</label>
-            <select class="w3-input w3-border" id="guestNumber" name="Guests" required onchange="updateGuestInfo()">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select>
-          </div>
-          <div id="guestInfoContainer"></div>
-          <button type="submit" class="w3-button w3-block w3-margin-bottom">Submit RSVP</button>
-        </form>
-      </div>
-    </div>
-
-    <!-- Footer -->
- <footer class="w3-container w3-padding-32 w3-grey">
-      <div class="w3-row-padding">
-        <div class="w3-third">
-          <h3>Thank You</h3>
-          <p>Bianca and Shane are thrilled to celebrate their love with you on this special day.</p>
-        </div>
-      </div>
-    </footer>
-
-    <div class="w3-black w3-center w3-padding-24">Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></div>
-
-  </div>
+    <!-- (Keep the footer) -->
 
   </div>
 
   <script>
-    // Script to automatically rotate the hero images
-    // (Keep this script as it was)
+    // (Keep the previous scripts for sidebar navigation and RSVP form)
 
-    // Script for sidebar navigation
-    function openNav() {
-      document.getElementById("mySidebar").style.width = "250px";
+    // Modal Image Gallery
+    function onClick(element) {
+      document.getElementById("img01").src = element.src;
+      document.getElementById("modal01").style.display = "block";
+      var captionText = document.getElementById("caption");
+      captionText.innerHTML = element.alt;
     }
-
-    function closeNav() {
-      document.getElementById("mySidebar").style.width = "0";
-    }
-
-    // Script for dynamic RSVP form
-    function updateGuestInfo() {
-      const guestNumber = document.getElementById('guestNumber').value;
-      const container = document.getElementById('guestInfoContainer');
-      container.innerHTML = '';
-
-      for (let i = 1; i <= guestNumber; i++) {
-        container.innerHTML += `
-          <div class="guest-info">
-            <h4>Guest ${i}</h4>
-            <div class="w3-section">
-              <label>Name</label>
-              <input class="w3-input w3-border" type="text" name="Name${i}" required>
-            </div>
-            <div class="w3-section">
-              <label>Age</label>
-              <input class="w3-input w3-border" type="number" name="Age${i}" required>
-            </div>
-            <div class="w3-section">
-              <label>Dietary Requirements</label>
-              <input class="w3-input w3-border" type="text" name="Dietary${i}" placeholder="e.g. vegetarian, gluten-free">
-            </div>
-          </div>
-        `;
-      }
-    }
-
-    // Initialize the form
-    updateGuestInfo();
   </script>
 
 </body>
