@@ -111,6 +111,17 @@
       color: white;
       border: 1px solid #87CEEB;
     }
+    .w3-grey, .w3-gray, .w3-hover-gray:hover, .w3-hover-grey:hover {
+      background-color: #87CEEB !important;
+      color: black !important;
+    }
+    .w3-text-grey {
+      color: black !important;
+    }
+    footer {
+      background-color: #87CEEB;
+      color: black;
+    }
   </style>
 </head>
 <body class="w3-content" style="max-width:1600px">
@@ -242,28 +253,39 @@
       <p>For transportation, we recommend using ride-sharing services or renting a car. The venue is also accessible by public transportation.</p>
     </div>
 
-    <!-- RSVP -->
-    <div class="w3-container w3-padding-32" id="rsvp">
+<!-- RSVP -->
+    <div class="w3-container w3-light-grey w3-padding-32 w3-padding-large" id="rsvp">
       <div class="w3-content" style="max-width:600px">
         <h2 class="w3-center"><b>RSVP</b></h2>
         <p>Please let us know if you can join us on Bianca and Shane's special day.</p>
         <form action="/action_page.php" target="_blank" id="rsvpForm">
           <div class="w3-section">
             <label>Number of Guests</label>
-            <select class="w3-select w3-border" id="guestNumber" name="Guests" required onchange="updateGuestInfo()">
+            <select class="w3-input w3-border" id="guestNumber" name="Guests" required="" onchange="updateGuestInfo()">
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
               <option value="4">4</option>
               <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
             </select>
           </div>
-          <div id="guestInfoContainer"></div>
+          <div id="guestInfoContainer">
+          <div class="guest-info">
+            <h4>Guest 1</h4>
+            <div class="w3-section">
+              <label>Name</label>
+              <input class="w3-input w3-border" type="text" name="Name1" required="">
+            </div>
+            <div class="w3-section">
+              <label>Age</label>
+              <input class="w3-input w3-border" type="number" name="Age1" required="">
+            </div>
+            <div class="w3-section">
+              <label>Dietary Requirements</label>
+              <input class="w3-input w3-border" type="text" name="Dietary1" placeholder="e.g. vegetarian, gluten-free">
+            </div>
+          </div>
+        </div>
           <button type="submit" class="w3-button w3-block w3-margin-bottom">Submit RSVP</button>
         </form>
       </div>
@@ -279,7 +301,7 @@
     </div>
 
     <!-- Footer -->
-    <footer class="w3-container w3-padding-32 w3-grey">
+    <footer class="w3-container w3-padding-32">
       <div class="w3-row-padding">
         <div class="w3-third">
           <h3>Thank You</h3>
@@ -290,28 +312,11 @@
 
   </div>
 
-  <script>
-    // Script for sidebar navigation
-    function openNav() {
-      document.getElementById("mySidebar").style.width = "250px";
-    }
+ 
+ <script>
+    // Script to automatically rotate the hero images
+    // (Keep this script as it was)
 
-    function closeNav() {
-      document.getElementById("mySidebar").style.width = "0";
-    }
-
-    // Script for dynamic RSVP form
-    function updateGuestInfo() {
-      const guestNumber = document.getElementById('guestNumber').value;
-      const container = document.getElementById('guestInfoContainer');
-      container.innerHTML = '';
-
-      for (let i = 1; i <= guestNumber; i++) {
-      
-      
-      ////////
-      
-      <script>
     // Script for sidebar navigation
     function openNav() {
       document.getElementById("mySidebar").style.width = "250px";
@@ -350,14 +355,6 @@
 
     // Initialize the form
     updateGuestInfo();
-
-    // Modal Image Gallery
-    function onClick(element) {
-      document.getElementById("img01").src = element.src;
-      document.getElementById("modal01").style.display = "block";
-      var captionText = document.getElementById("caption");
-      captionText.innerHTML = element.alt;
-    }
   </script>
 
 </body>
