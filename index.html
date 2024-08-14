@@ -258,7 +258,7 @@
       <div class="w3-content" style="max-width:600px">
         <h2 class="w3-center"><b>RSVP</b></h2>
         <p>Please let us know if you can join us on Bianca and Shane's special day.</p>
-        <form action="/action_page.php" target="_blank" id="rsvpForm">
+        <form id="rsvpForm" onsubmit="return submitForm();">
           <div class="w3-section">
             <label>Number of Guests</label>
             <select class="w3-input w3-border" id="guestNumber" name="Guests" required="" onchange="updateGuestInfo()">
@@ -352,6 +352,35 @@
         `;
       }
     }
+    function submitForm() {
+  var form = document.getElementById('rsvpForm');
+  var formData = new FormData(form);
+  var jsonData = {};
+  formData.forEach((value, key) => {jsonData[key] = value});
+
+  fetch('https://script.google.com/macros/s/AKfycbz_IYmaunc03yL_VUObGSDnlqk4ihqYwdrlQNtqbEDPmrGhVvLnIYU7ZdsFZrGa0Ig/exec', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(jsonData)
+  })
+  .then(response => response.json())
+  .then(result => {
+    if (result.result === 'success') {
+      alert('Form submitted successfully');
+      form.reset();
+    } else {
+      alert('An error occurred: ' + result.message);
+    }
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    alert('An error occurred. Please try again.');
+  });
+
+  return false; // Prevent the form from submitting normally
+}
 
     // Initialize the form
     updateGuestInfo();
